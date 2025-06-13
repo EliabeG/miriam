@@ -473,6 +473,28 @@
             box-shadow: 0 15px 35px rgba(196, 105, 123, 0.2);
         }
 
+        .password-container.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #section0 .password-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 245, 248, 0.95));
+            box-shadow: 0 20px 40px rgba(196, 105, 123, 0.3);
+            animation: fadeInScale 1s ease-out forwards;
+        }
+
+        #section0 .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #c4697b, #d4798f, #c4697b);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 3s ease-in-out infinite;
+        }
+
         .password-input {
             width: 100%;
             padding: 1rem;
@@ -490,6 +512,11 @@
             outline: none;
             border-color: #c4697b;
             box-shadow: 0 0 0 3px rgba(196, 105, 123, 0.2);
+        }
+
+        #initialPasswordInput::placeholder {
+            color: #d4798f;
+            opacity: 0.7;
         }
 
         .password-message {
@@ -758,7 +785,24 @@
 <body>
     <div class="hearts-bg" id="heartsContainer"></div>
     
-    <div class="section active" id="section1">
+    <div class="section active" id="section0">
+        <div class="container">
+            <div class="content">
+                <h1 class="section-title show">💖 Acesso Especial 💖</h1>
+                <div class="password-container show" style="margin-top: 2rem;">
+                    <p class="password-message">Este conteúdo é exclusivo para meu amor.</p>
+                    <p class="password-message" style="font-size: 0.85rem; margin-top: 0.5rem;">Digite nossa data especial:</p>
+                    <input type="text" id="initialPasswordInput" class="password-input" placeholder="DD/MM/AAAA" maxlength="10">
+                    <button class="continue-btn show" onclick="checkInitialPassword()">
+                        Entrar 💕
+                    </button>
+                    <div id="initialErrorMessage" class="error-message">Data incorreta! Tente novamente.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section1">
         <div class="container">
             <div class="content">
                 <div class="dedication" id="dedication">Para Míriam</div>
@@ -1543,6 +1587,27 @@
         };
         
         switch(sectionNumber){
+            case 1: 
+                const dedication = document.getElementById('dedication');
+                const title = document.getElementById('mainTitle');
+                const message = document.getElementById('loveMessage');
+                const btn = document.getElementById('continueBtn');
+                
+                if(dedication) dedication.classList.add('show');
+                
+                setTimeout(() => {
+                    if(dedication) dedication.classList.add('hide');
+                    
+                    setTimeout(async () => {
+                        if(title) {
+                            title.classList.add('show');
+                            await typeWriter(title, 'Feliz Dia dos Namorados, Amor 💖');
+                        }
+                        if(message) setTimeout(() => { message.classList.add('show'); }, 500);
+                        if(btn) setTimeout(() => { btn.classList.add('show'); }, 2000);
+                    }, 1500);
+                }, 3500);
+                break;
             case 2: fade('#section2 .section-title', 200); fade('#section2 .video-container', 800); fade('#section2 .next-message', 1500); fade('#section2 .continue-btn', 2500); break;
             case 3: fade('#section3 .section-title', 200); fade('#section3 .story-intro', 800); fade('#section3 .continue-btn', 1500); break;
             case 4: fade('#section4 .chapter-cover', 200); fade('#section4 .continue-btn', 1000); break;
@@ -1584,6 +1649,29 @@
         }
     }
 
+    // ---- FUNÇÃO DE VERIFICAÇÃO DE SENHA INICIAL ----
+    function checkInitialPassword() {
+        const passwordInput = document.getElementById('initialPasswordInput');
+        const errorMessage = document.getElementById('initialErrorMessage');
+        
+        if (passwordInput.value === '05/10/2024') {
+            // Adicionar efeito de confete ao acertar a senha
+            showConfetti();
+            
+            // Pequeno delay para o efeito visual antes de mudar de seção
+            setTimeout(() => {
+                goToNextSection(1);
+            }, 500);
+        } else {
+            errorMessage.classList.add('show');
+            passwordInput.value = '';
+            
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 3000);
+        }
+    }
+
     // ---- FUNÇÃO DE VERIFICAÇÃO DE SENHA ----
     function checkPassword() {
         const passwordInput = document.getElementById('passwordInput');
@@ -1612,6 +1700,42 @@
     // Adicionar evento Enter no input de senha
     document.addEventListener('DOMContentLoaded', function() {
         const passwordInput = document.getElementById('passwordInput');
+        const initialPasswordInput = document.getElementById('initialPasswordInput');
+        
+        if (initialPasswordInput) {
+            initialPasswordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkInitialPassword();
+                }
+            });
+            // Focar automaticamente no campo de senha inicial
+            initialPasswordInput.focus();
+            
+            // Adicionar máscara de data
+            initialPasswordInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '';
+                
+                if (value.length >= 2) {
+                    formattedValue = value.slice(0, 2) + '/';
+                    if (value.length >= 4) {
+                        formattedValue += value.slice(2, 4) + '/';
+                        if (value.length >= 8) {
+                            formattedValue += value.slice(4, 8);
+                        } else {
+                            formattedValue += value.slice(4);
+                        }
+                    } else {
+                        formattedValue += value.slice(2);
+                    }
+                } else {
+                    formattedValue = value;
+                }
+                
+                e.target.value = formattedValue;
+            });
+        }
+        
         if (passwordInput) {
             passwordInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
@@ -1792,26 +1916,6 @@
     window.addEventListener('load', async () => {
         createHearts();
         createSparkles();
-        
-        const dedication = document.getElementById('dedication');
-        const title = document.getElementById('mainTitle');
-        const message = document.getElementById('loveMessage');
-        const btn = document.getElementById('continueBtn');
-        
-        if(dedication) dedication.classList.add('show');
-        
-        setTimeout(() => {
-            if(dedication) dedication.classList.add('hide');
-            
-            setTimeout(async () => {
-                if(title) {
-                    title.classList.add('show');
-                    await typeWriter(title, 'Feliz Dia dos Namorados, Amor 💖');
-                }
-                if(message) setTimeout(() => { message.classList.add('show'); }, 500);
-                if(btn) setTimeout(() => { btn.classList.add('show'); }, 2000);
-            }, 1500);
-        }, 3500);
     });
 </script>
 
