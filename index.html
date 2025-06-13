@@ -1,0 +1,1819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para Míriam ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef7, #ffe0ec, #fff5f8, #ffeef7);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            color: #8b4a6b;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            width: 100vw;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 182, 193, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 192, 203, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            position: relative;
+            width: 100%;
+        }
+
+        .section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+            z-index: 5;
+            overflow-y: auto;
+            padding-bottom: 50px;
+        }
+
+        .section.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .section.prev {
+            transform: translateX(-100%);
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 16px;
+            color: rgba(255, 182, 193, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.2; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.4; }
+        }
+
+        .content {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+            max-width: 100%;
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .dedication {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #c4697b;
+            font-family: 'Dancing Script', cursive;
+            opacity: 0;
+            transform: translateY(30px);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .dedication.show {
+            animation: fadeInHandwriting 3s ease-out forwards;
+        }
+
+        .dedication.hide {
+            animation: fadeOutUp 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInHandwriting {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) rotate(-2deg);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(10px) rotate(1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes fadeOutUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+        }
+
+        .main-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #c4697b, #d4798f, #c4697b);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 3s ease-in-out infinite;
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.2;
+        }
+
+        .main-title.show {
+            animation: fadeInUp 2s ease-out forwards, textShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes textShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .typewriter {
+            border-right: 3px solid #c4697b;
+            white-space: normal;
+            overflow: hidden;
+            animation: blink 1s infinite;
+            display: inline-block;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-color: transparent; }
+            51%, 100% { border-color: #c4697b; }
+        }
+
+        .love-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            padding: 0 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+            color: #8b4a6b;
+            font-weight: 300;
+        }
+
+        .love-message.show {
+            animation: fadeInUp 2s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .continue-btn {
+            background: linear-gradient(45deg, #d4798f, #c4697b);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(196, 105, 123, 0.3);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 1rem;
+        }
+
+        .continue-btn.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .continue-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .continue-btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #c4697b;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            line-height: 1.2;
+        }
+
+        .section-title.show {
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        .next-message {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 1.5rem 0;
+            padding: 0 1rem;
+            color: #8b4a6b;
+            font-style: italic;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            font-weight: 300;
+        }
+
+        .next-message.show {
+            animation: fadeInUp 2s ease-out 0.5s forwards;
+        }
+
+        .story-intro {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 1.5rem 0;
+            color: #8b4a6b;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .story-intro.show {
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+        }
+
+        .story-intro p {
+            margin: 0.5rem 0;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .chapter-cover {
+            margin: 1.5rem 0;
+            opacity: 0;
+            transform: scale(0.9);
+            width: 100%;
+            padding: 0 1rem;
+        }
+
+        .chapter-cover.show {
+            animation: fadeInScale 1.5s ease-out forwards;
+        }
+
+        .chapter-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(196, 105, 123, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+
+        .chapter-background {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749741714/1.2_br6qxa.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .chapter-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(1px);
+        }
+
+        .chapter-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .handwritten-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #4a2c3d;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            min-height: 150px;
+            position: relative;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        .handwritten-text span {
+            opacity: 0;
+            animation: penWrite 0.3s ease-out forwards;
+            position: relative;
+        }
+
+        @keyframes penWrite {
+            0% {
+                opacity: 0;
+                transform: translateY(10px) rotate(-5deg);
+                filter: blur(2px);
+            }
+            50% {
+                opacity: 0.7;
+                transform: translateY(5px) rotate(2deg);
+                filter: blur(1px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+                filter: blur(0);
+            }
+        }
+
+        .video-container {
+            margin-top: 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(196, 105, 123, 0.2);
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .video-container.show {
+            animation: fadeInScale 1.5s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .coming-soon {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #8b4a6b;
+            opacity: 0;
+            transform: translateY(20px);
+            padding: 0 1rem;
+        }
+
+        .coming-soon.show {
+            animation: fadeInUp 2s ease-out forwards;
+        }
+
+        .coming-soon p {
+            margin: 0.8rem 0;
+            font-weight: 300;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: #d4798f;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* ESTILOS DA SENHA */
+        .password-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(196, 105, 123, 0.2);
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: 2px solid #d4798f;
+            border-radius: 50px;
+            text-align: center;
+            color: #8b4a6b;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #c4697b;
+            box-shadow: 0 0 0 3px rgba(196, 105, 123, 0.2);
+        }
+
+        .password-message {
+            font-size: 0.9rem;
+            color: #8b4a6b;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .error-message.show {
+            opacity: 1;
+        }
+
+        /* ESTILOS DA ROLETA */
+        #rouletteContainer {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+        }
+
+        #rouletteContainer.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        #ticker {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 25px solid #c4697b;
+            z-index: 15;
+        }
+
+        #wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                #ffc0cb 0deg 90deg, 
+                #ffd9e2 90deg 180deg, 
+                #ffe5ec 180deg 270deg, 
+                #fff0f5 270deg 360deg
+            );
+            position: relative;
+            transition: transform 6s cubic-bezier(0.25, 1, 0.35, 1);
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .prize {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 0;
+            left: 50%;
+            transform-origin: 0% 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prize span {
+            display: inline-block;
+            white-space: normal;
+            text-align: center;
+            color: #8b4a6b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transform: translateX(-50%) translateY(-20px);
+            width: 120px;
+        }
+        
+        .prize:nth-child(1) { transform: rotate(45deg); }
+        .prize:nth-child(2) { transform: rotate(135deg); }
+        .prize:nth-child(3) { transform: rotate(225deg); }
+        .prize:nth-child(4) { transform: rotate(315deg); }
+
+        #rouletteResult {
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            color: #c4697b;
+            font-weight: bold;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        
+        #rouletteResult.show {
+            opacity: 1;
+        }
+
+        /* ESTILOS DO QUIZ */
+        #quizSection {
+            background: linear-gradient(135deg, #fff5f8, #ffeef7, #ffe0ec);
+            justify-content: flex-start;
+            padding-top: 6rem;
+        }
+
+        #saldoDisplay {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: #c4697b;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        #questionContainer {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            color: #8b4a6b;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #d4798f;
+            padding: 1rem;
+            font-size: 1rem;
+            color: #8b4a6b;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            transform: scale(1.05);
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .option.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* Efeitos visuais */
+        .confetti-rain, .red-flash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .red-flash-overlay {
+            background: rgba(255, 0, 0, 0.2);
+            opacity: 0;
+            animation: flash 0.5s ease-out;
+        }
+
+        @keyframes flash {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0.7;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        #finalPrize {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c4697b;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.8);
+            border-radius: 15px;
+        }
+
+        .prize-selector {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .prize-selector-title {
+            font-size: 1.2rem;
+            color: #8b4a6b;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .change-prize-btn {
+            background: linear-gradient(45deg, #d4798f, #c4697b);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(196, 105, 123, 0.3);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .change-prize-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(196, 105, 123, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsContainer"></div>
+    
+    <div class="section active" id="section1">
+        <div class="container">
+            <div class="content">
+                <div class="dedication" id="dedication">Para Míriam</div>
+                
+                <h1 class="main-title typewriter" id="mainTitle"></h1>
+                
+                <div class="love-message" id="loveMessage">
+                    Você é a luz que ilumina meus dias, o sorriso que aquece meu coração e a razão pela qual cada momento se torna especial. Em seus olhos encontro meu lar, em seus braços encontro minha paz. Você não é apenas minha namorada, você é minha melhor amiga, minha cúmplice, minha inspiração e meu amor verdadeiro. ❤️
+                </div>
+                
+                <button class="continue-btn" id="continueBtn" onclick="goToNextSection(2)">
+                    Continuar 💕
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section2">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Nossa História em Movimento 🎬</h2>
+                
+                <div class="video-container">
+                    <video id="loveVideo" controls playsinline>
+                        <source src="https://res.cloudinary.com/dxkuhwfcm/video/upload/v1749697096/natal_yfnvvm.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo HTML5.
+                    </video>
+                </div>
+                
+                <div class="next-message">
+                    Cada momento ao seu lado é um presente que guardo no coração...
+                </div>
+                
+                <button class="continue-btn" id="nextBtn" onclick="goToNextSection(3)">
+                    Próxima Surpresa 🌟
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section3">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Nossa História 📖</h2>
+                <div class="story-intro">
+                    <p>Cada capítulo da nossa vida juntos é uma página especial...</p>
+                    <p>Vamos relembrar como tudo começou? 💕</p>
+                </div>
+                <button class="continue-btn" id="storyBtn" onclick="goToNextSection(4)">
+                    Começar 🌟
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section4">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749741714/1_fwhz9u.png" 
+                         alt="Capítulo 1" 
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError').style.display='block';">
+                    <div id="imgError" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 1</p>
+                        <p style="color: #8b4a6b;">O Início de Tudo</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapterBtn" onclick="goToNextSection(5)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section5">
+        <div class="chapter-background">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapterText"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapterBtn" onclick="goToNextSection(6)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section6">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">A história continua... 💕</h2>
+                <div class="story-intro">
+                    <p>E o tempo passou...</p>
+                    <p>Mas o destino tinha outros planos 🌊</p>
+                </div>
+                <button class="continue-btn" id="chapter2Btn" onclick="goToNextSection(7)">
+                    Capítulo 2 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section7">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749741714/2_xqfi3r.png" 
+                         alt="Capítulo 2" 
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError2').style.display='block';">
+                    <div id="imgError2" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 2</p>
+                        <p style="color: #8b4a6b;">O Reencontro</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter2ReadBtn" onclick="goToNextSection(8)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section8">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749741713/2.2_ah4fun.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter2Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter2Btn" onclick="goToNextSection(10)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section9">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Continua... 💕</h2>
+                <div class="coming-soon">
+                    <p>Nossa história ainda está sendo escrita!</p>
+                    <p>Cada dia ao seu lado é um novo capítulo de amor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section10">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Um Lago e um Destino... 💕</h2>
+                <div class="story-intro">
+                    <p>Mas nosso verão ainda guardava uma surpresa submersa...</p>
+                    <p>Vamos descobrir? 🌊</p>
+                </div>
+                <button class="continue-btn" id="chapter3Btn" onclick="goToNextSection(11)">
+                    Capítulo 3 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section11">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749741712/3_fop2fu.png"
+                         alt="Capítulo 3"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError3').style.display='block';">
+                    <div id="imgError3" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 3</p>
+                        <p style="color: #8b4a6b;">Coração Fisgado</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter3ReadBtn" onclick="goToNextSection(12)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section12">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749741711/3.1_aglhay.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter3Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter3Btn" onclick="goToNextSection(13)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section13">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Novo clique, novo capítulo... 📱</h2>
+                <div class="story-intro">
+                    <p>A história continua em pixels e batimentos acelerados.</p>
+                    <p>Preparada para reviver o primeiro "DM"? 😉</p>
+                </div>
+                <button class="continue-btn" id="chapter4Btn" onclick="goToNextSection(14)">
+                    Capítulo 4 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section14">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746556/4_zq3mil.png"
+                         alt="Capítulo 4"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError4').style.display='block';">
+                    <div id="imgError4" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 4</p>
+                        <p style="color: #8b4a6b;">Timeline do Amor</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter4ReadBtn" onclick="goToNextSection(15)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section15">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746555/4.1_bpackn.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter4Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter4Btn" onclick="goToNextSection(16)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section16">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Praia, coragem e coração... 🌊</h2>
+                <div class="story-intro">
+                    <p>Depois daquele primeiro "DM", era hora do primeiro encontro oficial.</p>
+                    <p>Bora reviver o momento salgado mais doce da nossa história? 😘</p>
+                </div>
+                <button class="continue-btn" id="chapter5Btn" onclick="goToNextSection(17)">
+                    Capítulo 5 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section17">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746955/5_rmcxvz.png"
+                         alt="Capítulo 5"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError5').style.display='block';">
+                    <div id="imgError5" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 5</p>
+                        <p style="color: #8b4a6b;">Beijo à Beira‑Mar</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter5ReadBtn" onclick="goToNextSection(18)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section18">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746954/5.1_vnoizn.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter5Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter5Btn" onclick="goToNextSection(19)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section19">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Silêncios e Intervalos... ⏳</h2>
+                <div class="story-intro">
+                    <p>Quando o coração fala mais alto que as notificações, cada minuto vira eternidade.</p>
+                    <p>Vamos desvendar o hiato antes do próximo suspiro? 🤍</p>
+                </div>
+                <button class="continue-btn" id="chapter6Btn" onclick="goToNextSection(20)">
+                    Capítulo 6 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section20">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746953/6_xkzdgy.png"
+                         alt="Capítulo 6"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError6').style.display='block';">
+                    <div id="imgError6" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 6</p>
+                        <p style="color: #8b4a6b;">Pausa Inesperada</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter6ReadBtn" onclick="goToNextSection(21)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section21">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746951/6.1_wvrfbp.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter6Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter6Btn" onclick="goToNextSection(22)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section22">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Reboot de 2024... 🔄</h2>
+                <div class="story-intro">
+                    <p>Quando as notificações voltam a vibrar, o coração lembra que ainda sabe dançar.</p>
+                    <p>Bora reviver a madrugada de ligações? 🌙</p>
+                </div>
+                <button class="continue-btn" id="chapter7Btn" onclick="goToNextSection(23)">
+                    Capítulo 7 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section23">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746950/7_pm97pu.png"
+                         alt="Capítulo 7"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError7').style.display='block';">
+                    <div id="imgError7" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 7</p>
+                        <p style="color: #8b4a6b;">Madrugadas Online</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter7ReadBtn" onclick="goToNextSection(24)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section24">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746950/7.1_nnq6lx.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter7Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter7Btn" onclick="goToNextSection(25)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section25">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Sincronizando Mundos... 🔧❤️</h2>
+                <div class="story-intro">
+                    <p>Descobrimos que amar é afinar frequências: um pouquinho seu, um pouquinho meu.</p>
+                    <p>Vamos relembrar como viramos especialistas em ajustes? 😉</p>
+                </div>
+                <button class="continue-btn" id="chapter8Btn" onclick="goToNextSection(26)">
+                    Capítulo 8 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section26">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746949/8_logewa.png"
+                         alt="Capítulo 8"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError8').style.display='block';">
+                    <div id="imgError8" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 8</p>
+                        <p style="color: #8b4a6b;">Ajustes & Risadas</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter8ReadBtn" onclick="goToNextSection(27)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section27">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746948/8.1_pfsldm.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter8Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter8Btn" onclick="goToNextSection(28)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section28">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Pedido Oficial... 🎻💍</h2>
+                <div class="story-intro">
+                    <p>O coração bateu forte e o mundo ganhou trilha sonora.</p>
+                    <p>Vamos reviver o "sim" mais musical da galáxia? ✨</p>
+                </div>
+                <button class="continue-btn" id="chapter9Btn" onclick="goToNextSection(29)">
+                    Capítulo 9 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section29">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746946/9_o4sffv.png"
+                         alt="Capítulo 9"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError9').style.display='block';">
+                    <div id="imgError9" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 9</p>
+                        <p style="color: #8b4a6b;">O Grande "Sim"</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter9ReadBtn" onclick="goToNextSection(30)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section30">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746945/9.1_mnyjdo.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter9Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter9Btn" onclick="goToNextSection(31)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section31">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">8 Meses de Nós... ✨</h2>
+                <div class="story-intro">
+                    <p>Oito meses, infinitos sonhos e muito amor pela frente.</p>
+                    <p>Pronta para celebrar esse marco? 🎉</p>
+                </div>
+                <button class="continue-btn" id="chapter10Btn" onclick="goToNextSection(32)">
+                    Capítulo 10 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section32">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746945/10_oxn26h.png"
+                         alt="Capítulo 10"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError10').style.display='block';">
+                    <div id="imgError10" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 10</p>
+                        <p style="color: #8b4a6b;">Cordão de Três Dobras</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter10ReadBtn" onclick="goToNextSection(33)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section33">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746943/10.1_dw2x4r.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter10Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter10Btn" onclick="goToNextSection(34)">
+                    Próximo ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section34">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Epílogo do Amor em Construção... 🏡</h2>
+                <div class="story-intro">
+                    <p>Temos 8 meses e um estoque infinito de amor. Que tal olhar pro futuro?</p>
+                    <p>Pronta para mais um capítulo desse romance? 📖</p>
+                </div>
+                <button class="continue-btn" id="chapter11Btn" onclick="goToNextSection(35)">
+                    Capítulo 11 ➡️
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section35">
+        <div class="container">
+            <div class="content">
+                <div class="chapter-cover">
+                    <img src="https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746943/11_dkamvj.png"
+                         alt="Capítulo 11"
+                         class="chapter-image"
+                         onerror="this.style.display='none'; document.getElementById('imgError11').style.display='block';">
+                    <div id="imgError11" style="display:none; padding: 2rem; background: rgba(255,255,255,0.8); border-radius: 15px; margin-top: 1rem;">
+                        <p style="color: #c4697b; font-size: 1.2rem; margin-bottom: 0.5rem;">Capítulo 11</p>
+                        <p style="color: #8b4a6b;">Te Amo Imensamente</p>
+                    </div>
+                </div>
+                <button class="continue-btn chapter-btn" id="chapter11ReadBtn" onclick="goToNextSection(36)">
+                    Ler Capítulo 💖
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section36">
+        <div class="chapter-background" style="background-image: url('https://res.cloudinary.com/dxkuhwfcm/image/upload/v1749746943/11.1_ce0a3y.png');">
+            <div class="chapter-content">
+                <div class="handwritten-text" id="chapter11Text"></div>
+                <button class="continue-btn next-chapter-btn" id="nextChapter11Btn" onclick="goToNextSection(37)">
+                    Última Surpresa 🎁
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" id="section37">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Uma Última Prova de Amor... 🔐</h2>
+                <div id="passwordSection" class="password-container">
+                    <p class="password-message">Digite a senha secreta para continuar:</p>
+                    <input type="password" id="passwordInput" class="password-input" placeholder="Senha">
+                    <button class="continue-btn show" onclick="checkPassword()">
+                        Verificar 🔓
+                    </button>
+                    <div id="errorMessage" class="error-message">Senha incorreta! Tente novamente.</div>
+                </div>
+                
+                <div id="rouletteSection" style="display: none;">
+                    <h2 class="section-title show">Gire a Roleta do Prêmio! 🎡</h2>
+                    <div id="rouletteContainer">
+                        <div id="ticker"></div>
+                        <div id="wheel">
+                            <div class="prize"><span>Pix</span></div>
+                            <div class="prize"><span>Perfume</span></div>
+                            <div class="prize"><span>Produtos de beleza</span></div>
+                            <div class="prize"><span>Chocolates</span></div>
+                        </div>
+                    </div>
+                    <button class="continue-btn show" id="spinBtn" onclick="spinWheel()">Girar!</button>
+                    <div id="rouletteResult"></div>
+                    <button class="continue-btn" id="proceedToQuizBtn" style="display: none;" onclick="goToNextSection(38)">
+                        Determinar o Valor! 💰
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section" id="section38">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Quiz do Nosso Amor! 💖</h2>
+                <div class="story-intro">
+                    <p style="font-weight: 600; font-style: normal;">Instruções:</p>
+                    <p>Agora vamos para o quiz! Cada questão certa valerá 25 reais para o seu prêmio e se errar perderá 25 reais.</p>
+                    <p style="font-size:0.9rem; margin-top:1rem;">(O prêmio mínimo garantido é de R$100, não se preocupe!)</p>
+                </div>
+                <button class="continue-btn" id="startQuizBtn" onclick="startQuiz()">
+                    Li e entendi! Começar!
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section" id="section39">
+        <div id="saldoDisplay">Saldo: R$100</div>
+        <div class="container" id="quizContainer">
+            <div id="questionContainer">
+                </div>
+        </div>
+    </div>
+    
+    <div class="section" id="section40">
+        <div class="container">
+            <div class="content">
+                <h2 class="section-title">Resultado Final! 🏆</h2>
+                <div id="finalPrize"></div>
+                <button class="change-prize-btn" id="changePrizeBtn" onclick="showPrizeSelector()">
+                    Mudar o Prêmio 🎁
+                </button>
+                <div id="prizeSelector" style="display: none;">
+                    <div class="prize-selector-title">Escolha seu prêmio:</div>
+                    <div class="answer-options">
+                        <div class="option" onclick="selectPrize('Pix')">Pix</div>
+                        <div class="option" onclick="selectPrize('Perfume')">Perfume</div>
+                        <div class="option" onclick="selectPrize('Produtos de beleza')">Produtos de beleza</div>
+                        <div class="option" onclick="selectPrize('Chocolates')">Chocolates</div>
+                    </div>
+                </div>
+                <div class="coming-soon">
+                    <p>Parabéns por chegar até aqui, meu amor!</p>
+                    <p>Isso foi só uma brincadeira, o maior prêmio é ter você. Te amo! ❤️</p>
+                    <p>Feito com muito Amor</p>
+                    <p>De: Seu Eterno Namorado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // ---- VARIÁVEIS GLOBAIS ----
+    let saldo = 100;
+    let currentQuestionIndex = 0;
+    let chosenPrizeType = "Pix"; // Valor padrão
+    const prizes = ["Pix", "Perfume", "Produtos de beleza", "Chocolates"];
+    const quizData = [
+        { question: "Qual a data da nossa primeira ligação?", options: ["06/04/2024", "13/04/2024", "26/04/2024", "02/05/2024"], answer: 1 },
+        { question: "Qual o primeiro filme que assistimos juntos?", options: ["Tróia", "Os vingadores", "Homem aranha", "Viva – A Vida é uma Festa"], answer: 3 },
+        { question: "Qual história eu mais te contei?", options: ["A urubu e o sapo", "O macaco e a onça", "Pedro malasartes", "A raposa e o galo"], answer: 0 },
+        { question: "Qual o primeiro presente que eu te dei?", options: ["Chocolates e um urso de pelúcia", "Um perfume", "Produtos de beleza", "Dinheiro"], answer: 2 },
+        { question: "Qual jogo a gente mais jogou?", options: ["damas", "jogo da velha", "gartic", "pedra papel tesoura"], answer: 2 },
+        { question: "O que eu acho dos seus desenhos no Gartic?", options: ["ótimos", "bons", "ruins", "chama aquilo de desenho?!"], answer: 3 },
+        { question: "O que eu mais gosto no seu corpo:", options: ["bunda", "rosto", "cabelo", "pés"], answer: 3 },
+        { question: "Qual meu time de futebol do coração?", options: ["corinthians", "flamengo", "palmeiras", "internacional"], answer: 3 }
+    ];
+
+    // ---- FUNÇÕES DE NAVEGAÇÃO E ANIMAÇÃO ----
+
+    function createHearts() {
+        const container = document.getElementById('heartsContainer');
+        if(!container) return;
+        for (let i = 0; i < 10; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            container.appendChild(heart);
+        }
+    }
+
+    function typeWriter(element, text, speed = 80) {
+        return new Promise((resolve) => {
+            let i = 0;
+            if (!element) return resolve();
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    setTimeout(() => {
+                        if(element) element.classList.remove('typewriter');
+                        resolve();
+                    }, 1000);
+                }
+            }
+            type();
+        });
+    }
+
+    function goToNextSection(sectionNumber) {
+        const currentActiveSection = document.querySelector('.section.active');
+        const nextSection = document.getElementById(`section${sectionNumber}`);
+        
+        if (currentActiveSection && nextSection) {
+            currentActiveSection.classList.remove('active');
+            currentActiveSection.classList.add('prev');
+            
+            nextSection.classList.add('active');
+            
+            initSectionAnimations(sectionNumber);
+            
+            setTimeout(() => {
+                currentActiveSection.classList.remove('prev');
+            }, 1000);
+        }
+    }
+
+    function writeWithPenEffect(element, text) {
+        return new Promise((resolve) => {
+            if(!element) return resolve();
+            element.innerHTML = '';
+            const words = text.split(' ');
+            let wordIndex = 0;
+            
+            function writeWord() {
+                if (wordIndex < words.length) {
+                    const word = words[wordIndex];
+                    const letters = word.split('');
+                    let letterIndex = 0;
+                    
+                    function writeLetter() {
+                        if (letterIndex < letters.length) {
+                            const span = document.createElement('span');
+                            span.textContent = letters[letterIndex];
+                            span.style.animationDelay = `${letterIndex * 40}ms`;
+                            element.appendChild(span);
+                            letterIndex++;
+                            setTimeout(writeLetter, 40);
+                        } else {
+                            if (wordIndex < words.length - 1) {
+                                const space = document.createElement('span');
+                                space.textContent = ' ';
+                                space.style.animationDelay = '0ms';
+                                element.appendChild(space);
+                            }
+                            wordIndex++;
+                            setTimeout(writeWord, 80);
+                        }
+                    }
+                    writeLetter();
+                } else {
+                    resolve();
+                }
+            }
+            writeWord();
+        });
+    }
+
+    function createSparkles() {
+        setInterval(() => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.width = Math.random() * 4 + 2 + 'px';
+            sparkle.style.height = sparkle.style.width;
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }, 1000);
+    }
+    
+    function initSectionAnimations(sectionNumber) {
+        const fade = (sel, delay) => { const el=document.querySelector(sel); if(el) setTimeout(()=>el.classList.add('show'),delay); };
+        const write = (id, text, btnSel) => {
+            const el=document.getElementById(id);
+            const btn=document.querySelector(btnSel);
+            if(!el || !btn) return;
+            btn.classList.remove('show');
+            setTimeout(()=>{writeWithPenEffect(el,text).then(()=>setTimeout(()=>btn.classList.add('show'),500));},500);
+        };
+        
+        switch(sectionNumber){
+            case 2: fade('#section2 .section-title', 200); fade('#section2 .video-container', 800); fade('#section2 .next-message', 1500); fade('#section2 .continue-btn', 2500); break;
+            case 3: fade('#section3 .section-title', 200); fade('#section3 .story-intro', 800); fade('#section3 .continue-btn', 1500); break;
+            case 4: fade('#section4 .chapter-cover', 200); fade('#section4 .continue-btn', 1000); break;
+            case 5: write('chapterText', "Lá atrás, quando infância ainda significava domingos nos cultos da igreja, a gente já frequentava o mesmo espaço, mas nem sequer se conhecia. Zero contato, zero faísca—era como se Deus tivesse colocado uma venda temporária nos nossos olhos só pra manter um pouco de suspense nessa história.", '#section5 .next-chapter-btn'); break;
+            case 6: fade('#section6 .section-title', 200); fade('#section6 .story-intro', 800); fade('#section6 .continue-btn', 1500); break;
+            case 7: fade('#section7 .chapter-cover', 200); fade('#section7 .continue-btn', 1000); break;
+            case 8: write('chapter2Text', "O tempo passou voando – escola, provas, adolescência, a vida acontecendo. Sumimos completamente do radar um do outro. Até que, num belo dia, o destino resolveu dar um mergulho nessa história... literalmente.", '#section8 .next-chapter-btn'); break;
+            case 9: fade('#section9 .section-title', 200); fade('#section9 .coming-soon', 800); break;
+            case 10: fade('#section10 .section-title', 200); fade('#section10 .story-intro', 800); fade('#section10 .continue-btn', 1500); break;
+            case 11: fade('#section11 .chapter-cover', 200); fade('#section11 .continue-btn', 1000); break;
+            case 12: write('chapter3Text', 'Saí pra pescar de arpão com o Renato, crente que o grande troféu seria um peixe. Mal sabia eu que o verdadeiro "lance" seria encontrar meu Amor, sereia de água doce, tomando banho na lagoa. Foi olhar e pá! coração fisgado. Só consegui soltar um "oi" tímido e mergulhei (na vergonha) mais rápido que o arpão na água.', '#section12 .next-chapter-btn'); break;
+            case 13: fade('#section13 .section-title', 200); fade('#section13 .story-intro', 800); fade('#section13 .continue-btn', 1500); break;
+            case 14: fade('#section14 .chapter-cover', 200); fade('#section14 .continue-btn', 1000); break;
+            case 15: write('chapter4Text', 'Chego em casa, abro o Instagram – ali estava você, reluzente nos stories. Respondi à postagem só pra "puxar assunto"… mas por dentro já estava compondo trilha sonora romântica e escolhendo nomes para futuros filhos (e bem futuros viu...).', '#section15 .next-chapter-btn'); break;
+            case 16: fade('#section16 .section-title', 200); fade('#section16 .story-intro', 800); fade('#section16 .continue-btn', 1500); break;
+            case 17: fade('#section17 .chapter-cover', 200); fade('#section17 .continue-btn', 1000); break;
+            case 18: write('chapter5Text', 'Marcamos de nos ver na praia. O sal no ar, o vento nos cabelos e eu tremendo feito vara verde: "Será que ela me bate se eu tentar beijar?" Depois de algumas idas e vindas, o beijo finalmente aconteceu – e, surpresa, não apanhei. Pelo contrário, ganhei o passaporte pra mais encontros… agora na casa da sua irmã, meu novo endereço favorito.', '#section18 .next-chapter-btn'); break;
+            case 19: fade('#section19 .section-title', 200); fade('#section19 .story-intro', 800); fade('#section19 .continue-btn', 1500); break;
+            case 20: fade('#section20 .chapter-cover', 200); fade('#section20 .continue-btn', 1000); break;
+            case 21: write('chapter6Text', 'Será que tinha horário marcado pra responder mensagem? Porque você era igual remédio, só aparecia de oito em oito horas! E eu, dramático do jeito que sou, já interpretava isso como total desinteresse. A insegurança cresceu e nosso quase-amor acabou entrando em pausa forçada. Silêncio na história.', '#section21 .next-chapter-btn'); break;
+            case 22: fade('#section22 .section-title', 200); fade('#section22 .story-intro', 800); fade('#section22 .continue-btn', 1500); break;
+            case 23: fade('#section23 .chapter-cover', 200); fade('#section23 .continue-btn', 1000); break;
+            case 24: write('chapter7Text', 'Em 2024, a vida resolveu dar aquela atualizada. Voltamos a conversar e, graças a uma história engraçada envolvendo seu irmão (kkkkkk), tomei coragem pra ligar. Daí pra frente, virou rotina: ligação diária, duas da manhã, olhos ardendo, mas o coração sempre "online". Dormíamos pouco, mas sonhávamos muito.', '#section24 .next-chapter-btn'); break;
+            case 25: fade('#section25 .section-title', 200); fade('#section25 .story-intro', 800); fade('#section25 .continue-btn', 1500); break;
+            case 26: fade('#section26 .chapter-cover', 200); fade('#section26 .continue-btn', 1000); break;
+            case 27: write('chapter8Text', 'Entre uma conversa e outra, fomos nos ajustando, aprendendo a entrar no mundo um do outro. Descobri que amor é isso: adaptação constante, com muitas risadas e uns ajustes aqui e ali.', '#section27 .next-chapter-btn'); break;
+            case 28: fade('#section28 .section-title', 200); fade('#section28 .story-intro', 800); fade('#section28 .continue-btn', 1500); break;
+            case 29: fade('#section29 .chapter-cover', 200); fade('#section29 .continue-btn', 1000); break;
+            case 30: write('chapter9Text', 'Quando pedi você em namoro, achei que meu peito não ia comportar tanta alegria. Você disse "sim" e, de repente, todo o universo parecia tocar violino. Eu oficialmente namorava a menina que eu pedi a Deus – e Ele caprichou nos detalhes.', '#section30 .next-chapter-btn'); break;
+            case 31: fade('#section31 .section-title', 200); fade('#section31 .story-intro', 800); fade('#section31 .continue-btn', 1500); break;
+            case 32: fade('#section32 .chapter-cover', 200); fade('#section32 .continue-btn', 1000); break;
+            case 33: write('chapter10Text', 'Hoje completamos 8 meses juntos, cheios de planos e cada dia eu te amo mais do que o dia anterior. Breve vamos casar e Deus vai abençoar cada cantinho da nossa futura casa com nossas risadas e orações. Afinal, cordão de três dobras – Deus, você e eu – é difícil de romper.', '#section33 .next-chapter-btn'); break;
+            case 34: fade('#section34 .section-title', 200); fade('#section34 .story-intro', 800); fade('#section34 .continue-btn', 1500); break;
+            case 35: fade('#section35 .chapter-cover', 200); fade('#section35 .continue-btn', 1000); break;
+            case 36: write('chapter11Text', 'Míriam, você é meu porto seguro, minha aventura e a melhor parte do meu dia. Mal posso esperar pelos próximos capítulos que escreveremos juntos, repletos de manhãs felizes e paredes que contarão nossa história através de fotos. Te amo imensamente.', '#section36 .next-chapter-btn'); break;
+            case 37: fade('#section37 .section-title', 200); fade('#section37 #passwordSection', 800); break;
+            case 38: fade('#section38 .section-title', 200); fade('#section38 .story-intro', 800); fade('#section38 .continue-btn', 1500); break;
+            case 40: fade('#section40 .section-title', 200); fade('#section40 #finalPrize', 800); fade('#section40 .coming-soon', 1500); break;
+        }
+    }
+
+    // ---- FUNÇÃO DE VERIFICAÇÃO DE SENHA ----
+    function checkPassword() {
+        const passwordInput = document.getElementById('passwordInput');
+        const errorMessage = document.getElementById('errorMessage');
+        const passwordSection = document.getElementById('passwordSection');
+        const rouletteSection = document.getElementById('rouletteSection');
+        
+        if (passwordInput.value.toLowerCase() === 'xebiu') {
+            passwordSection.style.display = 'none';
+            rouletteSection.style.display = 'block';
+            
+            setTimeout(() => {
+                const rouletteContainer = document.getElementById('rouletteContainer');
+                rouletteContainer.classList.add('show');
+            }, 100);
+        } else {
+            errorMessage.classList.add('show');
+            passwordInput.value = '';
+            
+            setTimeout(() => {
+                errorMessage.classList.remove('show');
+            }, 3000);
+        }
+    }
+
+    // Adicionar evento Enter no input de senha
+    document.addEventListener('DOMContentLoaded', function() {
+        const passwordInput = document.getElementById('passwordInput');
+        if (passwordInput) {
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+        }
+    });
+
+    // ---- FUNÇÕES DA ROLETA E QUIZ ----
+
+    function spinWheel() {
+        const wheel = document.getElementById('wheel');
+        const spinBtn = document.getElementById('spinBtn');
+        spinBtn.disabled = true;
+
+        let prizeIndex;
+        const randomNumber = Math.random();
+
+        // 60% de chance para Pix (índice 0)
+        if (randomNumber < 0.6) {
+            prizeIndex = 0;
+        } else if (randomNumber < 0.73) { // 13% para Perfume
+            prizeIndex = 1;
+        } else if (randomNumber < 0.86) { // 13% para Produtos de beleza
+            prizeIndex = 2;
+        } else { // 14% para Chocolates
+            prizeIndex = 3;
+        }
+
+        chosenPrizeType = prizes[prizeIndex];
+
+        const degreesPerPrize = 360 / prizes.length;
+        const baseRotation = 360 * 5; 
+        const targetRotation = (prizeIndex * -degreesPerPrize) - (degreesPerPrize / 2);
+        
+        const rotation = baseRotation + targetRotation;
+        
+        wheel.style.transform = `rotate(${rotation}deg)`;
+
+        setTimeout(() => {
+            const resultEl = document.getElementById('rouletteResult');
+            const proceedBtn = document.getElementById('proceedToQuizBtn');
+            
+            resultEl.innerHTML = `O prêmio será: <strong>${chosenPrizeType}!</strong>`;
+            resultEl.classList.add('show');
+            proceedBtn.style.display = 'inline-block';
+            
+            setTimeout(() => proceedBtn.classList.add('show'), 100);
+        }, 6500);
+    }
+    
+    function startQuiz() {
+        goToNextSection(39);
+        setTimeout(displayQuestion, 500);
+    }
+
+    function displayQuestion() {
+        const questionContainer = document.getElementById('questionContainer');
+        if (currentQuestionIndex < quizData.length) {
+            const currentQuiz = quizData[currentQuestionIndex];
+            questionContainer.innerHTML = `
+                <div class="question-text">${currentQuiz.question}</div>
+                <div class="answer-options">
+                    ${currentQuiz.options.map((option, index) => `
+                        <div class="option" onclick="checkAnswer(${index}, this)">${option}</div>
+                    `).join('')}
+                </div>
+            `;
+            const qText = questionContainer.querySelector('.question-text');
+            const opts = questionContainer.querySelectorAll('.option');
+            qText.style.opacity = '0';
+            opts.forEach(opt => opt.style.opacity = '0');
+            setTimeout(() => {
+                qText.style.transition = 'opacity 0.5s';
+                qText.style.opacity = '1';
+                opts.forEach((opt, i) => {
+                    opt.style.transition = 'opacity 0.5s, transform 0.3s';
+                    opt.style.transitionDelay = `${(i+1) * 0.1}s`;
+                    opt.style.opacity = '1';
+                });
+            }, 100);
+        } else {
+            showResults();
+        }
+    }
+
+    function checkAnswer(selectedIndex, element) {
+        const options = element.parentElement.querySelectorAll('.option');
+        options.forEach(opt => opt.classList.add('disabled'));
+
+        const isCorrect = selectedIndex === quizData[currentQuestionIndex].answer;
+        saldo += isCorrect ? 25 : -25;
+        
+        options[selectedIndex].classList.add(isCorrect ? 'correct' : 'incorrect');
+        if (!isCorrect) {
+            options[quizData[currentQuestionIndex].answer].classList.add('correct');
+            flashRed();
+        } else {
+            showConfetti();
+        }
+        
+        const saldoDisplay = document.getElementById('saldoDisplay');
+        saldoDisplay.textContent = `Saldo: R$${saldo}`;
+        saldoDisplay.style.transform = 'translateX(-50%) scale(1.1)';
+        setTimeout(() => { saldoDisplay.style.transform = 'translateX(-50%) scale(1)'; }, 300);
+
+        currentQuestionIndex++;
+        setTimeout(displayQuestion, 2000);
+    }
+
+    function showResults() {
+        if (saldo < 100) saldo = 100;
+        goToNextSection(40);
+        updateFinalPrize();
+    }
+
+    function updateFinalPrize() {
+        const finalPrizeEl = document.getElementById('finalPrize');
+        let finalMessage = "";
+
+        if (chosenPrizeType === 'Pix') {
+            finalMessage = `Parabéns! Você ganhou um Pix de R$${saldo}!`;
+        } else {
+            finalMessage = `Parabéns! Você ganhou: <strong>${chosenPrizeType}</strong> no valor de R$${saldo}!`;
+        }
+        if(finalPrizeEl) {
+            finalPrizeEl.innerHTML = finalMessage;
+        }
+    }
+
+    function showPrizeSelector() {
+        const selector = document.getElementById('prizeSelector');
+        const btn = document.getElementById('changePrizeBtn');
+        if(selector && btn) {
+            selector.style.display = 'block';
+            btn.style.display = 'none';
+        }
+    }
+
+    function selectPrize(prize) {
+        chosenPrizeType = prize;
+        updateFinalPrize();
+        const selector = document.getElementById('prizeSelector');
+        const btn = document.getElementById('changePrizeBtn');
+        if(selector && btn) {
+            selector.style.display = 'none';
+            btn.style.display = 'inline-block';
+        }
+    }
+    
+    function flashRed() {
+        const flashOverlay = document.createElement('div');
+        flashOverlay.className = 'red-flash-overlay';
+        document.body.appendChild(flashOverlay);
+        setTimeout(() => flashOverlay.remove(), 500);
+    }
+
+    function showConfetti() {
+        const confettiContainer = document.createElement('div');
+        confettiContainer.className = 'confetti-rain';
+        document.body.appendChild(confettiContainer);
+
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = -20 + 'px';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confettiContainer.appendChild(confetti);
+        }
+        
+        setTimeout(() => confettiContainer.remove(), 5000);
+    }
+
+    // ---- INICIALIZAÇÃO DA PÁGINA ----
+    window.addEventListener('load', async () => {
+        createHearts();
+        createSparkles();
+        
+        const dedication = document.getElementById('dedication');
+        const title = document.getElementById('mainTitle');
+        const message = document.getElementById('loveMessage');
+        const btn = document.getElementById('continueBtn');
+        
+        if(dedication) dedication.classList.add('show');
+        
+        setTimeout(() => {
+            if(dedication) dedication.classList.add('hide');
+            
+            setTimeout(async () => {
+                if(title) {
+                    title.classList.add('show');
+                    await typeWriter(title, 'Feliz Dia dos Namorados, Amor 💖');
+                }
+                if(message) setTimeout(() => { message.classList.add('show'); }, 500);
+                if(btn) setTimeout(() => { btn.classList.add('show'); }, 2000);
+            }, 1500);
+        }, 3500);
+    });
+</script>
+
+</body>
+</html>
